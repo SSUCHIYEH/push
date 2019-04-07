@@ -1,3 +1,5 @@
+import '../css/main.css'; 
+
 $(document).ready(function () {
 	// when a hanburger menu is clicked
 	let $ul = $(".nav__list"),
