@@ -10,7 +10,7 @@ module.exports = {
     },
     module:{
         rules:[
-            {
+                {
                 test: /\.css$/,
                 use:ExtractTextPlugin.extract({
                     use:[{
@@ -24,7 +24,24 @@ module.exports = {
                     }),
                 
                 },
-            ]
+                {
+                    test: /\.(jpe?g|png|gif|svg)$/,
+                    use: [
+                       {
+                          loader: 'url-loader',
+                          options: {
+                             limit: 40000,
+                             outputPath: './images',
+                             publicPath: './images'
+                          }
+                       },
+                       'image-webpack-loader'
+                    ]
+                },
+        
+
+            ],
+
         },
     plugins:[
         new ExtractTextPlugin('css/main.css'),
